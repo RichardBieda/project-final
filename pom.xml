@@ -24,6 +24,7 @@
     </properties>
 
     <dependencies>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -99,7 +100,7 @@
             <!-- added version and removed optional because of mvn compile error if using JDK21.
             Keep optional and remove version if using JDK <21 -->
             <version>1.18.30</version>
-            <!-- <optional>true</optional> -->
+<!--             <optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>org.mapstruct</groupId>
