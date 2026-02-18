@@ -56,7 +56,7 @@ values (1, 'skype', 'userSkype'),
        (1, 'website', 'user.com'),
        (2, 'github', 'adminGitHub'),
        (2, 'telegram', 'adminTg'),
-       (2, 'facebook', 'adminFb');
+--       (2, 'facebook', 'adminFb');
 
 delete
 from ATTACHMENT;
