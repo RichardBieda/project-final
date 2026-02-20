@@ -6,4 +6,7 @@ logs
 attachments
 *.patch
 
+# sensitive config
+config/sensitive-props.properties
+
 

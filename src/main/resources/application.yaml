@@ -8,6 +8,8 @@ app:
     max-pool-size: 100
 
 spring:
+  config:
+    import: optional:file:./config/sensitive-props.properties
   init:
     mode: never
   jpa:
@@ -27,8 +29,8 @@ spring:
         jdbc.batch_size: 20
   datasource:
     url: jdbc:postgresql://localhost:5432/jira
-    username: jira
-    password: CodeGymJira
+    username: ${sensitive.datasource.username} #jira
+    password: ${sensitive.datasource.password} #CodeGymJira
 
   liquibase:
     changeLog: "classpath:db/changelog.sql"
@@ -51,13 +53,17 @@ spring:
       client:
         registration:
           github:
-            client-id: Ov23lixZ3fZs8lK1Favs
-            client-secret: 082593c10c56c20ef971674e01b1888cad11d5cf
+#            client-id: Ov23lixZ3fZs8lK1Favs
+#            client-secret: 082593c10c56c20ef971674e01b1888cad11d5cf
+            client-id: ${sensitive.oauth.github.client-id}
+            client-secret: ${sensitive.oauth.github.client-secret}
             scope:
               - email
           google:
-            client-id: 402741404180-p4869n0mc6q8asg0pou45lbejc89pvin.apps.googleusercontent.com
-            client-secret: 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
+#            client-id: 402741404180-p4869n0mc6q8asg0pou45lbejc89pvin.apps.googleusercontent.com
+#            client-secret: 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
+            client-id: ${sensitive.oauth.google.client-id}
+            client-secret: ${sensitive.oauth.google.client-secret}
             scope:
               - email
               - profile
@@ -66,8 +72,10 @@ spring:
 #            client-secret: ec0cd4af250938789118ae8dae51fb66
 #            scope: email
           gitlab:
-            client-id: de8dd2c629a08481d935e519ae4636634e97d74c1cab7fcbcb47e920e1ac1965
-            client-secret: gloas-74923caa0ca5708d7b3761335c6043cb5343ae1ee2a9da3dba9539183710cf20
+#            client-id: de8dd2c629a08481d935e519ae4636634e97d74c1cab7fcbcb47e920e1ac1965
+#            client-secret: gloas-74923caa0ca5708d7b3761335c6043cb5343ae1ee2a9da3dba9539183710cf20
+            client-id: ${sensitive.oauth.gitlab.client-id}
+            client-secret: ${sensitive.oauth.gitlab.client-secret}
             client-name: GitLab
             redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
             authorization-grant-type: authorization_code
@@ -96,8 +104,10 @@ spring:
             enable: true
           auth: true
     host: smtp.gmail.com
-    username: cgjirafinal@gmail.com
-    password: YJMN4dJg8Lmo
+#    username: cgjirafinal@gmail.com
+#    password: YJMN4dJg8Lmo
+    username: ${sensitive.mail.username}
+    password: ${sensitive.mail.password}
     port: 587
   thymeleaf.check-template-location: false
 

@@ -1,8 +1,12 @@
 spring.cache.type: none
 spring:
+  config:
+    import: optional:file:./config/sensitive-props.properties
   init:
     mode: always
   datasource:
     url: jdbc:postgresql://localhost:5433/jira-test
-    username: jira
-    password: CodeGymJira
+#    username: jira
+#    password: CodeGymJira
+    username: ${sensitive.datasource.username} #jira
+    password: ${sensitive.datasource.password} #CodeGymJira
