@@ -6,8 +6,6 @@ spring:
     import: optional:file:./config/sensitive-props.properties
   datasource:
     url: jdbc:postgresql://localhost:5432/jira
-#    username: jira
-#    password: CodeGymJira
-    username: ${sensitive.datasource.username} #jira
-    password: ${sensitive.datasource.password} #CodeGymJira
+    username: ${sensitive.datasource.username}
+    password: ${sensitive.datasource.password}
 
