@@ -88,10 +88,10 @@ spring:
           starttls:
             enable: true
           auth: true
-    host: ${sensitive.mail.host}
-    username: ${sensitive.mail.username}
-    password: ${sensitive.mail.password}
-    port: ${sensitive.mail.port}
+    host: ${MAIL_HOST}
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    port: ${MAIL_PORT}
   thymeleaf.check-template-location: false
 
   mvc.throw-exception-if-no-handler-found: true
