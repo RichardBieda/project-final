@@ -1,32 +1,16 @@
 ---------  users ----------------------
-delete
-from USER_ROLE;
-delete
-from CONTACT;
-delete
-from PROFILE;
+SET REFERENTIAL_INTEGRITY FALSE;
+TRUNCATE TABLE USER_ROLE;
+TRUNCATE TABLE CONTACT;
+TRUNCATE TABLE PROFILE;
+TRUNCATE TABLE ACTIVITY;
+TRUNCATE TABLE TASK;
+TRUNCATE TABLE SPRINT;
+TRUNCATE TABLE PROJECT;
+TRUNCATE TABLE USERS;
+TRUNCATE TABLE USER_BELONG;
+SET REFERENTIAL_INTEGRITY TRUE;
 
-delete
-from ACTIVITY;
-alter
-sequence ACTIVITY_ID_SEQ restart with 1;
-delete
-from TASK;
-alter
-sequence TASK_ID_SEQ restart with 1;
-delete
-from SPRINT;
-alter
-sequence SPRINT_ID_SEQ restart with 1;
-delete
-from PROJECT;
-alter
-sequence PROJECT_ID_SEQ restart with 1;
-
-delete
-from USERS;
-alter
-sequence USERS_ID_SEQ restart with 1;
 
 insert into USERS (EMAIL, PASSWORD, FIRST_NAME, LAST_NAME, DISPLAY_NAME)
 values ('user@gmail.com', '{noop}password', 'userFirstName', 'userLastName', 'userDisplayName'),
@@ -54,8 +38,6 @@ values (1, 'skype', 'userSkype'),
        (1, 'website', 'user.com'),
        (2, 'github', 'adminGitHub'),
        (2, 'telegram', 'adminTg');
---       (2, 'facebook', 'adminFb');
-
 
 insert into PROJECT (code, title, description, type_code, parent_id)
 values ('PR1', 'PROJECT-1', 'test project 1', 'task_tracker', null),
