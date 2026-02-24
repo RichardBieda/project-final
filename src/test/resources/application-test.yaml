@@ -1,5 +1,4 @@
 spring.cache.type: none
-logging.level.org.springframework.boot.context.config: DEBUG
 spring:
   config:
     import: optional:file:./config/sensitive-props-test.properties
