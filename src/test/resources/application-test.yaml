@@ -1,13 +1,14 @@
 spring.cache.type: none
+logging.level.org.springframework.boot.context.config: DEBUG
 spring:
   config:
-    import: optional:file:./config/sensitive-props.properties
+    import: optional:file:./config/sensitive-props-test.properties
     init:
     mode: always
   datasource:
     url: jdbc:h2:mem:jira-test;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     driver-class-name: org.h2.Driver
-    username: ${sensitive.datasource.username}
-    password: ${sensitive.datasource.password}
+    username: ${sensitive.test-datasource.username}
+    password: ${sensitive.test-datasource.password}
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
